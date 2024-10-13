@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import AjoutClasse from './AjoutClasse';
+import ListeClasses from './ListeClasses';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [classes, setClasses] = useState([]);
+
+    const fetchClasses = async () => {
+        const response = await fetch('http://localhost:9091/api/classe/all');
+        const data = await response.json();
+        setClasses(data);
+    };
+
+    const supprimerClasse = async (nomClasse) => { 
+        const response = await fetch(`http://localhost:9091/api/classe/delete/${nomClasse}`, { 
+            method: 'DELETE',
+        });
+        if (response.ok) {
+            alert('تم الحذف بنجاح');
+            fetchClasses(); 
+        } else {
+            alert('خطأ في حذف القسم');
+        }
+    };
+
+    useEffect(() => {
+        fetchClasses();
+    }, []);
+
+    return (
+        <div>
+            <h1>إدارة الأقسام</h1>
+            <AjoutClasse fetchClasses={fetchClasses} />
+            <ListeClasses classes={classes} fetchClasses={fetchClasses} supprimerClasse={supprimerClasse} />
+        </div>
+    );
+};
 
 export default App;

@@ -1,38 +1,108 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('./assets/image2.png'); 
+  background-size: cover; 
+  background-position: center; 
+}
+
+
+h1 {
   text-align: center;
+  color: #ffffff; 
+  margin-top: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2 {
+  text-align: center;
+  color: #ffffff; 
+  margin: 0; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+form {
+  background-color: rgba(255, 255, 255, 0.9); 
+  border-radius: 8px; 
+  padding: 20px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  max-width: 500px; 
+  margin: 20px auto; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+label {
+  display: block; 
+  margin-bottom: 8px; 
+  font-weight: bold; 
+  color: #333;
+}
+
+
+input[type="text"], input[type="number"], select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-bottom: 15px; 
+}
+
+button {
+  background-color: #4CAF50; 
+  color: white; 
+  border: none;
+  padding: 10px 15px; 
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px; 
+  transition: background-color 0.3s; 
+}
+
+button:hover {
+  background-color: #8896d4; 
+}
+
+.table {
+  width: 80%;
+  margin: 20px auto; 
+  border-collapse: collapse; 
+  background-color: rgba(255, 255, 255, 0.8); 
+}
+
+th, td {
+  border: 1px solid #dddddd; 
+  text-align: left; 
+  padding: 8px; 
+}
+
+th {
+  background-color: #8896d4; 
+  color: white; 
+}
+
+
+.button-modifier, .button-supprimer {
+  padding: 10px 15px; 
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-modifier {
+  background-color: #2196F3; 
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.button-supprimer {
+  background-color: #f44336; 
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-modifier:hover {
+  background-color: #0b7dda; 
+}
+
+.button-supprimer:hover {
+  background-color: #d32f2f; 
 }
